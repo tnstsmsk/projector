@@ -24,6 +24,6 @@ def cats_heats(numb_cat, rounds):
 rounds = int(input('Enter a number of rounds: '))
 numb_cat = int(input('Enter a number of cats: '))
 
-final = cats_heats(rounds, numb_cat)
+final = cats_heats(numb_cat, rounds)
 
 print(f"Cats # {', '.join(map(str, final))} have hats at the end")
