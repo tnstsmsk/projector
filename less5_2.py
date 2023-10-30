@@ -2,7 +2,10 @@ def jccard_similarity(set1, set2):
     method_inters = set1.intersection(set2)
     method_union = set1.union(set2)
 
-    jaccard_similarity = len(method_inters) / len(method_union)
+    try:
+        jaccard_similarity = len(method_inters) / len(method_union)
+    except ZeroDivisionError:
+        print('Division by zero: sets are empty')
 
     return round(jaccard_similarity, 2)
 
