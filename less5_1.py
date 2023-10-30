@@ -15,13 +15,16 @@ def bus_timing(bus_stop, minutes):
                 if minutes <= min:
                     result = min - minutes
                     break
+                
+                elif minutes > max(minute):
+                    result = -1
 
     return result
 
 
 def test_bus_timing():
-    result1 = bus_timing('University Ave & 27th Ave SE', 8)
-    assert result1 == 2
+    result1 = bus_timing('University Ave & 27th Ave SE', 58)
+    assert result1 == -1
 
     result2 = bus_timing('University Ave & 27th Ave SE', 10)
     assert result2 == 0
