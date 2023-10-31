@@ -6,7 +6,7 @@ result = []
 for player in players:
 
     for numb in range(100):
-        score = random.randint(0, 10)
+        score = random.randint(0, 1000)
         result.append([player, score])
 
 with open('result.csv', 'w') as file:
