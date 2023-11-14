@@ -15,7 +15,7 @@ class Car:
         return self.speed
 
 
-my_car = Car('Porshe', '911', 2021)
+my_car = Car('Porsche', '911', 2021)
 
 
 my_car.accelerate()
