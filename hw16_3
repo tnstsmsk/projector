@@ -1,0 +1,35 @@
+SELECT u.user_ID, u.first_mame, u.last_name
+FROM Users u
+JOIN (
+    SELECT guest_ID, COUNT(*) AS reservation_count
+    FROM Reservations
+    GROUP BY guest_ID
+    ORDER BY reservation_count DESC
+    LIMIT 1
+) r ON u.user_ID = r.guest_ID;
+
+
+SELECT u.user_ID, u.first_mame
+FROM Users u
+JOIN (
+    SELECT host_ID, SUM(total_price) AS total_earnings
+    FROM Reservations
+    WHERE DATE_PART('month', checkIn_date) = DATE_PART('month', CURRENT_DATE) - 1
+    GROUP BY host_ID
+    ORDER BY total_earnings DESC
+    LIMIT 1
+) e ON u.user_ID = e.host_ID
+WHERE u.user_type = 'Host';
+
+
+SELECT u.user_ID, u.first_mame
+FROM Users u
+JOIN (
+    SELECT r.room_ID, AVG(rating) AS avg_rating
+    FROM Reviews r
+    JOIN Rooms rm ON r.room_ID = rm.room_ID
+    GROUP BY r.room_ID
+    ORDER BY avg_rating DESC
+    LIMIT 1
+) h ON u.user_ID = h.host_ID
+WHERE u.user_type = 'Host';

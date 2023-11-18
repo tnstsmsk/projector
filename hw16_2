@@ -1,0 +1,26 @@
+INSERT INTO Users (user_ID, first_mame, last_name, email, user_type)
+VALUES
+    (1, 'Anna', 'Due', 'anna@gmail.com', 'Host'),
+    (2, 'Alice', 'Smith', 'alice@gmail.com', 'Guest'),
+    (3, 'Kate', 'Moon', 'ella@gmail.com', 'Guest');
+
+
+INSERT INTO Rooms (room_ID, host_ID, room_name, description, max_residents, price_per_night, air_conditioning, refrigerator)
+VALUES
+    (101, 1, 'Cozy Cabin', 'A cabin in the woods', 4, 100.00, TRUE, TRUE),
+    (102, 1, 'Beachfront Villa', 'Villa by the beach', 6, 250.00, TRUE, TRUE),
+    (103, 1, 'City Apartment', 'Apartment in the heart of the city', 2, 90.00, TRUE, FALSE);
+
+
+INSERT INTO Reservations (reservation_ID, guest_ID, room_ID, checkIn_date, checkOut_date, total_price)
+VALUES
+    (1001, 2, 101, '2023-09-15', '2023-09-20', 500.00),
+    (1002, 3, 102, '2023-11-05', '2023-11-11', 2130.00),
+    (1003, 2, 103, '2023-10-04', '2023-10-11', 630.00);
+
+
+INSERT INTO Reviews (review_ID, guest_ID, room_ID, rating, review_text, date_posted)
+VALUES
+    (2001, 2, 101, 4, 'Great cabin in a peaceful location.', '2023-10-21'),
+    (2002, 3, 102, 5, 'Wonderful beachfront villa experience.', '2023-11-19'),
+    (2003, 2, 103, 3, 'Decent city apartment, but noisy at night.', '2023-10-15');
